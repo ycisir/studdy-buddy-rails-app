@@ -1,0 +1,24 @@
+<h1>Create room</h1>
+<% @room.errors.full_messages.each do |message| %>
+   		<%= message %>
+<% end %>
+<%= form_with model: @room do |form| %>
+  
+  <div>
+    <%= form.label :topic_name %>
+    <%= form.text_field :topic_name %>  
+  </div>
+
+  <div>
+  	<%= form.label :name %>
+  	<%= form.text_field :name %>	
+  </div>
+
+  <div>
+  	<%= form.label :description %>
+  	<%= form.text_field :description %>	
+  </div>
+
+  <%= form.submit %>
+  
+<% end %>

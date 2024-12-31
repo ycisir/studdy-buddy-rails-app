@@ -1,0 +1,9 @@
+<%= form_with(model: message, local: false, remote: true, html: { multipart: true } ) do |form| %>
+    <%= form.hidden_field :room_id, value: room.id %>
+  
+    <%= form.text_field :body, placeholder: "Type your message here..." %>  
+    <%= form.file_field :media_file %>  
+
+    <%= form.submit "Send" %>
+  
+<% end %>

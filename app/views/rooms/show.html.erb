@@ -1,0 +1,38 @@
+
+<div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
+<div style="margin: 15px 0;">
+  Room name: <%= @room.name %><br>
+  Room description: <%= @room.description %><br>
+  Topic name: <%= @room.topic.name %>---<%= @room.topic.id %><br>
+  Host: <%= @room.host.username %><br>
+</div>
+
+
+<hr>
+<div style="display: flex;">
+
+  <div style="width:60%">
+    <h3>Messages</h3>
+    <div id="messages">
+    <% @messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+    </div>
+
+    <div>
+      <% if current_user %>
+        <%= render 'messages/form', message: Message.new, room: @room %>
+      <% end %>
+    </div>
+
+
+
+    <% unless current_user %>
+      <%= link_to "Want to join this room?", user_session_path %>
+    <% end %>
+  </div>
+
+  <div style="width: 40%">
+    Participants
+  </div>
+</div>

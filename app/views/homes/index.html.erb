@@ -1,0 +1,10 @@
+<h1>Rooms</h1>
+
+<% if user_signed_in? %> 
+	<%= link_to "create room", new_room_path %><br><br>
+<% end %>
+
+<br>
+<% @rooms.each do |room| %>
+	<%= link_to room.name, room %> <br>
+<% end %>

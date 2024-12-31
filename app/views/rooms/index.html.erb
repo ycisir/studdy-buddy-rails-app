@@ -1,0 +1,30 @@
+<br>
+<div style="display: flex;">
+	<div style="width: 30%;">
+		<%= render "topics" %>
+	</div>
+	<div style="width: 50%;">
+		<div>
+				<%= link_to "create room", new_room_path %><br><br>
+		</div>
+
+		
+		<span><%= pluralize(@rooms.all.count, 'room') %> available</span>
+		
+		<% @rooms.each do |room| %>
+
+			<div style="padding: 15px; border: 1px solid #ddd; margin: 15px;">
+					<span>created by @<%= room.host.username %> | <%= time_ago_in_words(room.created_at) %> ago</span>
+					<h3><%= link_to room.name, room %></h3>
+					<p><%= room.description %></p>
+					<hr>
+					<span><%= room.users.uniq.count %> joined | <%= room.topic.name %></span>
+			</div>
+		<% end %>
+
+	</div>
+	<div style="width: 40%;">
+		Recent Activities
+	</div>
+</div>
+

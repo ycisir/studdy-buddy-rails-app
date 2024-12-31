@@ -1,0 +1,13 @@
+<%= message.user.username %>: <%= message.body %><br>
+
+<% if message.media_file.attached? %>
+	<% if message.media_file.image? %>
+		<%= image_tag url_for(message.media_file) %><br>
+	<% elsif message.media_file.video? %>
+		<%= video_tag url_for(message.media_file), controls: "" %><br>
+	<% elsif message.media_file.audio? %>
+		<%= audio_tag url_for(message.media_file), controls: "" %><br>
+	<% else %>
+	  <%= link_to message.media_file.filename, rails_blob_path(message.media_file, disposition: "attachment") %><br>
+	<% end %>
+<% end %>
