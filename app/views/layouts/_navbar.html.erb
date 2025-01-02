@@ -22,7 +22,7 @@
                 <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </li>
             </ul>
-        <% else %>
+          <% else %>
             <%= button_to "Login", new_user_session_path, class: "btn btn-sm btn-outline-secondary" %>
           <% end %>
         </li>

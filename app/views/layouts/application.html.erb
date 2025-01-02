@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Study Buddy" %></title>
+    <title><%= content_for(:title) || "StudyBuddy - Find your study partners!" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -21,13 +21,10 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <% if user_signed_in? %> 
-      Welcome, <%= current_user.username %>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= button_to "Sign in", new_user_session_path %>
-    <% end %>
     
-    <%= yield %>
+    <div class="container">
+      <%= yield %>      
+    </div>
+    
   </body>
 </html>

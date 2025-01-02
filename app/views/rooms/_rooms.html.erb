@@ -1,0 +1,28 @@
+
+
+
+
+<% @rooms.each do |room| %>
+	<div class="jumbotron shadow-sm rounded p-3 mb-3">
+		<div class="row mb-2">
+			<div class="col-md-6">
+				<span>Created by @<%= room.host.username %></span>
+			</div>
+			<div class="col-md-6 m-auto">
+				<span class="float-end"><%= time_ago_in_words(room.created_at) %> ago</span>
+			</div>
+		</div>
+	  <h3 class="display-7"><%= link_to room.name, room %></h3>
+	  <p class="lead"><%= room.description %></p>
+	  <hr class="my-4">
+	  <div class="row mb-2">
+			<div class="col-md-6">
+				<span><%= room.users.uniq.count %> joined</span>
+			</div>
+			<div class="col-md-6 m-auto">
+				<span class="float-end"><%= room.topic.name %></span>
+			</div>
+		</div>
+	  
+	</div>
+<% end %>

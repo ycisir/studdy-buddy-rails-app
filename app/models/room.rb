@@ -20,6 +20,10 @@ class Room < ApplicationRecord
 	end
 
 
+
+	# searchkick text_middle: %i[name description topic]
+
+
 	# def set_topic_name
 	# 	tmp = Topic.find_by_name(topic_name)
 	# 	if tmp

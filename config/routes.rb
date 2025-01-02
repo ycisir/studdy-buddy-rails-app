@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  
   root to: "rooms#index"
   devise_for :users
   resources :rooms
   resources :messages
+
+  post "search", to: "search#index", as: "search"
+  post "search/suggestions", to: "search#suggestions", as: "search_suggestions"
  
 
   get "up" => "rails/health#show", as: :rails_health_check
