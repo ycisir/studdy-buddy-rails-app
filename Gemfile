@@ -64,3 +64,9 @@ gem "sassc-rails"
 
 gem 'searchkick'
 gem 'elasticsearch', '~> 7.17'
+
+gem "omniauth", "~> 2.1"
+
+gem "omniauth-google-oauth2", "~> 1.2"
+
+gem "omniauth-rails_csrf_protection", "~> 1.0"

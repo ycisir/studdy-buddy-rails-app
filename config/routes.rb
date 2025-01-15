@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   
   root to: "rooms#index"
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    sessions: "users/sessions",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
   resources :rooms
   resources :messages
 
