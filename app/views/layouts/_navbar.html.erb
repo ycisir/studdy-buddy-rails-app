@@ -6,27 +6,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
-      <form class="d-flex ms-auto">
-        <input class="form-control me-2" type="search" placeholder="Search study rooms..." aria-label="Search">
-      </form>
+      <%= render "rooms/search" %>
 
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">        
-      <li class="nav-item dropdown">
-          <% if user_signed_in? %> 
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              @<%= current_user.username %>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li>
-                <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              </li>
-            </ul>
-          <% else %>
+      <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+            @<%= current_user.username %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-outline-secondary" %>
+        <% else %>
             <%= button_to "Login", new_user_session_path, class: "btn btn-sm btn-outline-secondary" %>
-          <% end %>
-        </li>
-      </ul>
+        <% end %>
+      </div>
+      
     </div>
   </div>
 </nav>

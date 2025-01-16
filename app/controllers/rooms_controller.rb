@@ -3,6 +3,11 @@ class RoomsController < ApplicationController
   
   def index
     @rooms = Room.order(created_at: :desc)
+    
+    if params[:q].present?
+      @rooms = Room.where("name LIKE ? or description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%").order(created_at: :desc)
+    end
+
   end
   
   def new

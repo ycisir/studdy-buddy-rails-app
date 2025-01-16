@@ -1,9 +1,18 @@
 <h3>Browse topics</h3>
 
-<ul class="list-group">
-  <li class="list-group-item">All <span class="badge badge-primary">(<%= Topic.all.count %>)</span></li>
-  <li class="list-group-item">Dapibus ac facilisis in</li>
-  <li class="list-group-item">Morbi leo risus</li>
-  <li class="list-group-item">Porta ac consectetur ac</li>
-  <li class="list-group-item">Vestibulum at eros</li>
-</ul>
+<% if Topic.any? %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%= link_to 'All', root_path %>
+      <span class="badge rounded-pill bg-danger"><%= Topic.all.count %></span>
+    </li>
+    <% Topic.all.each do |topic| %>
+      <li class="list-group-item">
+        <%= link_to topic.name, "#{root_path}?q=#{topic.name}" %>
+        <span class="badge rounded-pill bg-danger"><%= topic.rooms.all.count %></span>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No topic found</p>
+<% end %>

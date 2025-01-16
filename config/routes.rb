@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root to: "rooms#index"
+  
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions",
@@ -9,8 +10,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :messages
 
-  post "search", to: "search#index", as: "search"
-  post "search/suggestions", to: "search#suggestions", as: "search_suggestions"
+  get "search", to: "rooms#index", as: "search"
  
 
   get "up" => "rails/health#show", as: :rails_health_check

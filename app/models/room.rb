@@ -1,12 +1,11 @@
 class Room < ApplicationRecord
-	validates :name, presence:true
-	validates :description, presence:true
+	validates :name, presence: { message: "should be present" }, format: { with: /\A[A-Z]/, message: "should be capitalize" }
+	validates :topic_name, presence: { message: "should be present" }, format: { with: /\A[A-Z]/, message: "should be capitalize" }
 	belongs_to :user
 	belongs_to :topic
   	has_many :messages, dependent: :destroy
   	has_many :users, through: :messages
 
-  	searchkick text_midle: %i[name description]
 
 	# before_save :set_topic_name
 	attr_accessor :topic_name
