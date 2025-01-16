@@ -6,6 +6,7 @@ class Room < ApplicationRecord
   	has_many :messages, dependent: :destroy
   	has_many :users, through: :messages
 
+  	searchkick text_midle: %i[name description]
 
 	# before_save :set_topic_name
 	attr_accessor :topic_name
