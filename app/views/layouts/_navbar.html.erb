@@ -10,8 +10,20 @@
 
       <div class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
-            @<%= current_user.username %>
-            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-outline-secondary" %>
+        <div class="dropdown-toggle show">
+          <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             
+                <span class="mt-1">@<%= current_user.username %></span>
+ 
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Settings</a>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item btn btn-link" %>
+          </div>
+        </div>
+        
+            
         <% else %>
             <%= button_to "Login", new_user_session_path, class: "btn btn-sm btn-outline-secondary" %>
         <% end %>
@@ -20,3 +32,13 @@
     </div>
   </div>
 </nav>
+
+
+<script type="text/javascript">
+  const dropdowns = document.querySelectorAll('.dropdown-toggle')
+const dropdown = [...dropdowns].map((dropdownToggleEl) => new bootstrap.Dropdown(dropdownToggleEl, {
+    popperConfig(defaultBsPopperConfig) {
+        return { ...defaultBsPopperConfig, strategy: 'fixed' };
+    }
+}));
+</script>
