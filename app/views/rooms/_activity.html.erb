@@ -1,0 +1,15 @@
+
+<h5>Recent Activities</h5>
+
+<% rooms.each do |room| %>
+	<% if room.messages.any? %>
+		<% room.messages.last(5).each do |message| %>
+			<div class="rounded border mt-3 p-3">
+				<span>@<%= message.user.username %></span>
+				<span><%= time_ago_in_words(message.updated_at) %> ago replied in "<%= message.room.name %>"</span>
+				<span class="bg-light"><%= message.body %></span>
+			</div>
+		<% end %>
+	<% end %>
+
+<% end %>

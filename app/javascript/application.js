@@ -6,3 +6,4 @@ import "channels"
 
 import "popper"
 import "bootstrap"
+import "jquery"

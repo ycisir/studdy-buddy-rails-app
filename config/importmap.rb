@@ -13,3 +13,4 @@ pin_all_from "app/javascript/channels", under: "channels"
 
 pin "popper", to: 'popper.js', preload: true
 pin "bootstrap", to: 'bootstrap.min.js', preload: true
+pin "jquery", to: "jquery.min.js", preload: true

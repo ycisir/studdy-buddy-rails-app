@@ -60,13 +60,14 @@ end
 
 gem "devise", "~> 4.9"
 gem "bootstrap"
+gem "font-awesome-sass"
 gem "sassc-rails"
+gem 'will_paginate'
+gem 'jquery-rails'
 
 gem 'searchkick'
 gem 'elasticsearch', '~> 7.17'
 
 gem "omniauth", "~> 2.1"
-
 gem "omniauth-google-oauth2", "~> 1.2"
-
 gem "omniauth-rails_csrf_protection", "~> 1.0"

@@ -22,7 +22,14 @@
   <body>
     <%= render "layouts/navbar" %>
     
-    <div class="container">
+    <div data-controller="application" class="container">
+
+      <span id="alert-id">
+        <%= alert %>
+      </span>
+      <span id="notice-id">
+        <%= notice %>        
+      </span>
       <%= yield %>      
     </div>
     

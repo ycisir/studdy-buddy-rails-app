@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   resources :rooms
   resources :messages
 
+  # normal search
   get "search", to: "rooms#index", as: "search"
- 
+  get "search/topic", to: "rooms#index", as: "search_topic"
 
   get "up" => "rails/health#show", as: :rails_health_check
 
